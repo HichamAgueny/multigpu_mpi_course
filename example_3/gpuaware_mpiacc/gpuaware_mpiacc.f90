@@ -9,8 +9,8 @@
             integer :: ix,iter,ierr,tag1,tag2
             integer :: host_rank,host_comm
             integer :: myDevice,numDevice
-            integer :: resulten, ierror
-            integer(kind=8) :: nxmax,nx,n_bits
+            integer :: resulten, ierror, nx
+            integer(kind=8) :: nxmax,n_bits
             integer, parameter :: float_size_bit = 64 !for double precision 64 bit=8 byte
             integer, parameter :: N0=8*1024
             integer, parameter :: n_iter=10
@@ -123,10 +123,10 @@ nxmax = int(result_GB)
        elapsed_time = end_time - start_time
 
        if(myid.eq.0) then
-         n_bits = 2*nx* float_size_bit !factor 2 comes from: copyin + copyout
+         n_bits = 2*nx !* float_size_bit !factor 2 comes from: copyin + copyout
          average_time = dble(elapsed_time/n_iter)
          bandwidth_Gbps = dble(n_bits/average_time)*1e-9
-         if(nx.gt.8) write(*,'(A,F15.5,A,I13,A,F15.5)')" --Time (s) ", average_time, " Data size (B) ", n_bits/8/2, " Bandwidth (GBps) ", bandwidth_Gbps/8.0
+         if(nx.gt.8) write(*,'(A,F15.5,A,I13,A,F15.5)')" --Time (s) ", average_time, " Data size (B) ", n_bits/8/2*float_size_bit, " Bandwidth (GBps) ", bandwidth_Gbps/8.0
       endif
 
       deallocate(f)
