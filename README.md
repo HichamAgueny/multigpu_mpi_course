@@ -38,7 +38,7 @@ Submit a job: ```sbatch script.slurm```
 1. Clone this repository to your local machine:
     ```sh
     git clone https://github.com/HichamAgueny/multiGPU_MPI.git
-    cd multiGPU_MPI
+    cd multigpu_mpi_course
     ```
 
 2. Navigate to the folder for the example you want to start with e.g.:
