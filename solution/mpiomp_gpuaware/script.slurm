@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #SBATCH --job-name=gpuaware-mpiomp
-#SBATCH --account=project_465001310
+#SBATCH --account=project_465002387
 #SBATCH --time=00:05:00
 #SBATCH --partition=standard-g
 #SBATCH --nodes=1
