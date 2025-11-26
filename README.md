@@ -1,4 +1,4 @@
-# Multiple GPU Programming with MPI
+# GPU-aware MPI: Multiple GPU Programming for HPC systems
 
 This repository contains a series of examples and exercises designed to help you learn and practice multiple GPU programming with MPI, specifically GPU-aware MPI with OpenACC and OpenMP
 
