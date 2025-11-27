@@ -123,8 +123,8 @@ nxmax = int(result_GB)
        elapsed_time = end_time - start_time
 
        if(myid.eq.0) then
-         n_bits = 2*nx !* float_size_bit !factor 2 comes from: copyin + copyout
-         average_time = dble(float_size_bit*elapsed_time/n_iter)
+         n_bits = 2*nx * float_size_bit !factor 2 comes from: copyin + copyout
+         average_time = dble(elapsed_time/n_iter)
          bandwidth_Gbps = dble(n_bits/average_time)*1e-9
          if(nx.gt.8) write(*,'(A,F15.5,A,I13,A,F15.5)')" --Time (s) ", average_time, " Data size (B) ", n_bits/8/2*float_size_bit, " Bandwidth (GBps) ", bandwidth_Gbps/8.0
       endif
